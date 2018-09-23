@@ -30,7 +30,6 @@ public class UserController {
                       @RequestParam(name = "pageSize", required = false, defaultValue = "10")
                               int pageSize) {
         PageInfo<AppUser> pageInfo = userService.get(pageNum, pageSize);
-        System.out.println("this is a test");
         return JSON.toJSONString(pageInfo);
     }
 
