@@ -55,7 +55,7 @@ public class UserController {
         AppUser appUser = new AppUser();
         appUser.setId(id);
         appUser.setUsername(username);
-        appUser.setSex(1);
+        appUser.setSex(111);
         appUser.setUpdateTime(new Date());
         appUser.setDel(0);
         int update = userService.update(appUser);
