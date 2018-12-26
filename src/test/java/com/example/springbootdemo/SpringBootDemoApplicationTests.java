@@ -1,5 +1,6 @@
 package com.example.springbootdemo;
 
+import com.example.person.bean.Dog;
 import com.example.person.bean.Person;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +19,14 @@ public class SpringBootDemoApplicationTests {
     @Autowired
     private ApplicationContext ioc;
 
+    @Autowired
+    private Dog dog;
+
+    @Test
+    public void contextLoads() {
+        System.out.println(person);
+    }
+
     @Test
     public void config() {
         boolean success = ioc.containsBean("personService");
@@ -25,8 +34,8 @@ public class SpringBootDemoApplicationTests {
     }
 
     @Test
-    public void contextLoads() {
-        System.out.println(person);
+    public void testDog() {
+        System.out.println(dog);
     }
 
 }
