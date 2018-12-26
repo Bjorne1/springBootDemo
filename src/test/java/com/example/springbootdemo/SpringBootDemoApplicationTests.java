@@ -1,6 +1,6 @@
 package com.example.springbootdemo;
 
-import com.example.person.Person;
+import com.example.person.bean.Person;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

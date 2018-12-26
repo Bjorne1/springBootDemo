@@ -1,4 +1,4 @@
-package com.example.person;
+package com.example.person.bean;
 
 /**
  * @Description:
