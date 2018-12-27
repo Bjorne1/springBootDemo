@@ -4,6 +4,8 @@ import com.example.person.bean.Dog;
 import com.example.person.bean.Person;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
@@ -27,10 +29,16 @@ public class SpringBootDemoApplicationTests {
         System.out.println(person);
     }
 
+    private Logger logger = LoggerFactory.getLogger(getClass());
+
     @Test
     public void config() {
         boolean success = ioc.containsBean("personService");
-        System.out.println(success);
+        logger.trace("trace");
+        logger.debug("debug");
+        logger.info(String.valueOf(success)); //default logger lever
+        logger.warn("warn");
+        logger.error("error");
     }
 
     @Test

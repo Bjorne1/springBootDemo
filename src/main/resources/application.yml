@@ -11,3 +11,9 @@ person:
   dog:
     name: dog
     age: 2
+
+#logging:
+#  path: /spring/log
+#  level:
+#    com:
+#      example: debug
