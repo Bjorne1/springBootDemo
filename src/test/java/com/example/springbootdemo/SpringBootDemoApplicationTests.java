@@ -11,6 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.sql.DataSource;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SpringBootDemoApplicationTests {
@@ -23,6 +25,9 @@ public class SpringBootDemoApplicationTests {
 
     @Autowired
     private Dog dog;
+
+    @Autowired
+    DataSource dataSource;
 
     @Test
     public void contextLoads() {
@@ -44,6 +49,11 @@ public class SpringBootDemoApplicationTests {
     @Test
     public void testDog() {
         System.out.println(dog);
+    }
+
+    @Test
+    public void testDataSource() {
+        System.out.println(dataSource.getClass());
     }
 
 }
