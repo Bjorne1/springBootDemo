@@ -1,5 +1,7 @@
 package com.example.springbootdemo;
 
+import com.example.cache.bean.AppCache;
+import com.example.cache.dao.AppCacheDao;
 import com.example.person.bean.Dog;
 import com.example.person.bean.Person;
 import org.junit.Test;
@@ -22,6 +24,9 @@ public class SpringBootDemoApplicationTests {
     @Autowired
     private Dog dog;
 
+    @Autowired
+    private AppCacheDao appCacheDao;
+
     @Test
     public void contextLoads() {
         System.out.println(person);
@@ -38,4 +43,9 @@ public class SpringBootDemoApplicationTests {
         System.out.println(dog);
     }
 
+    @Test
+    public void testMybatis() {
+        AppCache appCache = appCacheDao.get("15458977282070040010100400000061");
+        System.out.println("结果:"+appCache);
+    }
 }
