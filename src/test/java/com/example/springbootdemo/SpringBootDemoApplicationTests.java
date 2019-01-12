@@ -8,12 +8,17 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.amqp.core.AmqpAdmin;
+import org.springframework.amqp.core.DirectExchange;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.sql.DataSource;
+import java.util.HashMap;
+import java.util.Map;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -64,6 +69,42 @@ public class SpringBootDemoApplicationTests {
     @Test
     public void testMybatis() {
         AppCache appCache = appCacheDao.get("15458977282070040010100400000061");
-        System.out.println("结果:"+appCache);
+        System.out.println("结果:" + appCache);
     }
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
+    /**
+     * 用于绑定exchange,queues
+     */
+    @Autowired
+    private AmqpAdmin amqpAdmin;
+
+    /**
+     * 发送消息
+     */
+    @Test
+    public void send() {
+        Map<String, String> map = new HashMap<>();
+        map.put("HELLO", "你好");
+        map.put("Listener", "监听");
+        //广播类型
+        //对象被默认序列化以后发出去，所以说乱的，改用json序列化见rabbitConfig
+        rabbitTemplate.convertAndSend("test.direct", "test.direct", map);
+    }
+
+    @Test
+    public void receive() {
+        Object o = rabbitTemplate.receiveAndConvert("test.direct");
+        System.out.println(o.getClass());
+        System.out.println(o);
+    }
+
+    @Test
+    public void createExchange() {
+        amqpAdmin.declareExchange(new DirectExchange("createExchangeByJava"));
+        //amqpAdmin.declareQueue(new Queue("createByJava"));
+    }
+
 }
