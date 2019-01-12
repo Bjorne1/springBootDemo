@@ -16,6 +16,8 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/gene_app_debug?characterEncoding=utf8&serverTimezone=Asia/Shanghai
     username: root
     password: root
+  redis:
+    host: 192.168.2.213
 #开启驼峰命名法
 mybatis:
   configuration:

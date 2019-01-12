@@ -17,7 +17,7 @@ public class AppCacheController {
     private AppCacheService appCacheService;
 
     @GetMapping("/appCache/{id}")
-    public AppCache get(@PathVariable String id) {
+    public String get(@PathVariable String id) {
         return appCacheService.get(id);
     }
 

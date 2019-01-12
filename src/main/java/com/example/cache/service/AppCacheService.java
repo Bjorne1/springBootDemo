@@ -21,9 +21,9 @@ public class AppCacheService {
      * 开启缓存，默认key为传参
      */
     @Cacheable(cacheNames = {"appCache"})
-    public AppCache get(String id) {
+    public String get(String id) {
         System.out.println("get From database");
-        return appCacheDao.get(id);
+        return appCacheDao.get(id).toString();
     }
 
     /**
