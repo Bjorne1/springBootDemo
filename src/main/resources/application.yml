@@ -22,8 +22,10 @@ spring:
     host: 192.168.2.213
     username: guest
     password: guest
+  elasticsearch:
+    jest:
+      uris: http://192.168.2.102:9200
 #开启驼峰命名法
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
-
