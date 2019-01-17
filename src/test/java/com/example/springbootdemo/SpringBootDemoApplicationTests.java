@@ -114,7 +114,7 @@ public class SpringBootDemoApplicationTests {
     }
 
     /**
-     * elasticsearch有两种操作方式，一种是springboot自带的spring-data，另一个是Jest
+     * elasticsearch有两种操作方式，一种是springboot自带的spring-data，另一个是Jest(默认不生效)
      */
     @Autowired
     JestClient jestClient;
@@ -162,5 +162,18 @@ public class SpringBootDemoApplicationTests {
             e.printStackTrace();
         }
     }
+
+    //使用spring-data操作有两种方式，一种是继承ElasticsearchRepository使用
+    //可能存在springboot与elasticsearch版本不适配问题
+//    @Autowired
+//    private BookRepository bookRepository;
+//
+//    @Test
+//    public void springDataAddEs() {
+//        Book book = new Book();
+//        book.setId(1);
+//        book.setName("Golden Without");
+//        bookRepository.index(book);
+//    }
 
 }

@@ -22,9 +22,14 @@ spring:
     host: 192.168.2.213
     username: guest
     password: guest
+    connection-timeout: 1000
   elasticsearch:
     jest:
       uris: http://192.168.2.102:9200
+#  data:
+#    elasticsearch:
+#      cluster-name: elasticsearch
+#      cluster-nodes: 192.168.2.102:9300
 #开启驼峰命名法
 mybatis:
   configuration:

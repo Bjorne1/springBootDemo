@@ -43,6 +43,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
+		<!--引入springboot-data操作-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+		</dependency>
 		<!--引入jest操作elasticsearch-->
 		<!-- https://mvnrepository.com/artifact/io.searchbox/jest -->
 		<dependency>
